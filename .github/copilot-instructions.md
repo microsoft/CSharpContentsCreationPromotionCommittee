@@ -1,148 +1,148 @@
-# C# Contents Creation Promotion Committee Repository
+# C# コンテンツ作成推進委員会リポジトリ
 
-The C# Contents Creation Promotion Committee repository is a Microsoft initiative for coordinating and promoting C# educational content, best practices, and community resources. This repository serves as a collaboration hub for committee activities, content planning, and C# development projects.
+C# コンテンツ作成推進委員会リポジトリは、C# 教育コンテンツ、ベストプラクティス、コミュニティリソースの調整と推進を目的とした Microsoft の取り組みです。このリポジトリは、委員会の活動、コンテンツ計画、C# 開発プロジェクトのコラボレーションハブとして機能します。
 
-**CRITICAL: Always reference these instructions first and fallback to search or additional commands only when you encounter unexpected information that does not match the information provided here.**
+**重要：常にこの指示を最初に参照し、ここに記載された情報と一致しない予期しない情報に遭遇した場合のみ、検索や追加コマンドにフォールバックしてください。**
 
-## Working Effectively
+## 効率的な作業
 
-### Prerequisites and Environment Setup
-- **System Requirements**: Ubuntu 24.04 LTS environment with .NET 8.0.119 SDK pre-installed
-- **Available Tools**: git (2.51.0), nano, vim, dotnet CLI
-- **Note**: Visual Studio Code is not available in this environment - use nano or vim for text editing
+### 前提条件と環境設定
+- **システム要件**：.NET 8.0.119 SDK がプリインストールされた Ubuntu 24.04 LTS 環境
+- **利用可能なツール**：git (2.51.0)、nano、vim、dotnet CLI
+- **注意**：この環境では Visual Studio Code は利用できません - テキスト編集には nano または vim を使用してください
 
-### Basic Repository Operations
-- Clone and setup: Repository is pre-cloned in development environment
-- **Available .NET Version**: .NET 8.0.119 with ASP.NET Core 8.0.19 runtime
-- Verify setup: `dotnet --info` (takes <1 second)
-- Repository structure: Currently minimal with SECURITY.md only
+### 基本的なリポジトリ操作
+- クローンとセットアップ：リポジトリは開発環境で事前にクローンされています
+- **利用可能な .NET バージョン**：.NET 8.0.119 と ASP.NET Core 8.0.19 ランタイム
+- セットアップの確認：`dotnet --info`（1秒未満で完了）
+- リポジトリ構造：現在は SECURITY.md のみの最小構成
 
-### Creating C# Projects (Committee Work)
-- **Create console application**: `dotnet new console -n [ProjectName]` (takes ~8 seconds, NEVER CANCEL)
-- **Create class library**: `dotnet new classlib -n [LibraryName]` (takes ~1-2 seconds)
-- **Create test project**: `dotnet new xunit -n [ProjectName].Tests` (takes ~10 seconds, NEVER CANCEL - includes NuGet restore)
-- **Create Web API**: `dotnet new webapi -n [ApiName]` (takes ~3-4 seconds)
-- **Create solution**: `dotnet new sln -n [SolutionName]` (takes <1 second)
+### C# プロジェクトの作成（委員会作業）
+- **コンソールアプリケーションの作成**：`dotnet new console -n [ProjectName]`（約8秒、絶対キャンセルしない）
+- **クラスライブラリの作成**：`dotnet new classlib -n [LibraryName]`（1-2秒）
+- **テストプロジェクトの作成**：`dotnet new xunit -n [ProjectName].Tests`（約10秒、絶対キャンセルしない - NuGet 復元含む）
+- **Web API の作成**：`dotnet new webapi -n [ApiName]`（3-4秒）
+- **ソリューションの作成**：`dotnet new sln -n [SolutionName]`（1秒未満）
 
-### Building and Testing C# Projects
-- **Build project**: `dotnet build` (takes ~8 seconds for simple projects, NEVER CANCEL - set timeout to 60+ seconds for complex solutions)
-- **Run console application**: `dotnet run` (takes ~1-2 seconds)
-- **Run tests**: `dotnet test` (takes ~4-5 seconds for basic xUnit projects, NEVER CANCEL - set timeout to 120+ seconds for large test suites)
-- **Restore packages**: `dotnet restore` (automatic during build, but can run manually, takes ~1-2 seconds)
+### C# プロジェクトのビルドとテスト
+- **プロジェクトのビルド**：`dotnet build`（単純なプロジェクトで約8秒、絶対キャンセルしない - 複雑なソリューションには60秒以上のタイムアウトを設定）
+- **コンソールアプリケーションの実行**：`dotnet run`（1-2秒）
+- **テストの実行**：`dotnet test`（基本的な xUnit プロジェクトで4-5秒、絶対キャンセルしない - 大規模なテストスイートには120秒以上のタイムアウトを設定）
+- **パッケージの復元**：`dotnet restore`（ビルド時に自動実行されるが、手動実行も可能、1-2秒）
 
-### Package Management
-- **Add NuGet package**: `dotnet add package [PackageName]` (takes ~2-3 seconds, requires internet access)
-- **List packages**: `dotnet list package`
-- **Remove package**: `dotnet remove package [PackageName]`
-- **Example tested package**: Newtonsoft.Json installs successfully
+### パッケージ管理
+- **NuGet パッケージの追加**：`dotnet add package [PackageName]`（2-3秒、インターネット接続が必要）
+- **パッケージの一覧表示**：`dotnet list package`
+- **パッケージの削除**：`dotnet remove package [PackageName]`
+- **テスト済みパッケージ例**：Newtonsoft.Json のインストールが正常に動作
 
-### Solution Management
-- **Add project to solution**: `dotnet sln add [ProjectPath]/[ProjectName].csproj` (takes <1 second)
-- **Remove project**: `dotnet sln remove [ProjectPath]/[ProjectName].csproj`
-- **List projects**: `dotnet sln list`
+### ソリューション管理
+- **ソリューションにプロジェクトを追加**：`dotnet sln add [ProjectPath]/[ProjectName].csproj`（1秒未満）
+- **プロジェクトの削除**：`dotnet sln remove [ProjectPath]/[ProjectName].csproj`
+- **プロジェクトの一覧表示**：`dotnet sln list`
 
-## Validation Requirements
+## 検証要件
 
-### MANDATORY: Always Validate Changes
-- **Build validation**: Always run `dotnet build` after making code changes
-- **Test validation**: Always run `dotnet test` if test projects exist
-- **Runtime validation**: For console apps, run `dotnet run` and verify expected output
-- **Web API validation**: For Web APIs, build successfully and check for compilation errors
+### 必須：常に変更を検証する
+- **ビルド検証**：コード変更後は常に `dotnet build` を実行
+- **テスト検証**：テストプロジェクトが存在する場合は常に `dotnet test` を実行
+- **ランタイム検証**：コンソールアプリの場合は `dotnet run` を実行し、期待される出力を確認
+- **Web API 検証**：Web API の場合は正常にビルドし、コンパイルエラーがないことを確認
 
-### Testing Scenarios for Committee Content
-When creating educational content or examples:
-1. **Create sample project**: Use `dotnet new console -n SampleProject`
-2. **Verify compilation**: Run `dotnet build` and ensure clean build
-3. **Test execution**: Run `dotnet run` and verify expected output
-4. **Document timing**: Note actual execution times for learners
+### 委員会コンテンツのテストシナリオ
+教育コンテンツやサンプルを作成する際：
+1. **サンプルプロジェクトの作成**：`dotnet new console -n SampleProject` を使用
+2. **コンパイルの確認**：`dotnet build` を実行し、クリーンビルドを確保
+3. **実行テスト**：`dotnet run` を実行し、期待される出力を確認
+4. **実行時間の記録**：学習者のために実際の実行時間を記録
 
-### No Automated CI/CD Currently
-- **Note**: Repository does not have GitHub Actions workflows for C# projects
-- **Manual verification required**: Always test locally before committing
-- **No linting tools**: Standard Visual Studio/.NET formatting applies
+### 現在自動化された CI/CD なし
+- **注意**：リポジトリには C# プロジェクト用の GitHub Actions ワークフローはありません
+- **手動検証が必要**：コミット前には常にローカルでテストしてください
+- **リンティングツールなし**：標準的な Visual Studio/.NET フォーマットが適用されます
 
-## Repository-Specific Guidelines
+## リポジトリ固有のガイドライン
 
-### Committee Structure and Purpose
-- **Primary Focus**: Educational content creation and promotion for C# developers
-- **Content Types**: Code samples, tutorials, best practices documentation
-- **Target Audience**: C# developers at all skill levels
+### 委員会の構造と目的
+- **主な焦点**：C# 開発者向けの教育コンテンツの作成と推進
+- **コンテンツタイプ**：コードサンプル、チュートリアル、ベストプラクティスドキュメント
+- **対象読者**：あらゆるスキルレベルの C# 開発者
 
-### File Organization Best Practices
-- **Projects**: Place new C# projects in descriptively named subdirectories
-- **Documentation**: Use markdown files for content documentation
-- **Examples**: Create self-contained, runnable examples with clear README files
+### ファイル編成のベストプラクティス
+- **プロジェクト**：新しい C# プロジェクトは説明的な名前のサブディレクトリに配置
+- **ドキュメント**：コンテンツドキュメントには markdown ファイルを使用
+- **サンプル**：明確な README ファイル付きの自己完結型で実行可能なサンプルを作成
 
-### Collaboration Workflow
-- **Content Review**: All educational content should be peer-reviewed
-- **Code Standards**: Follow standard C# coding conventions
-- **Documentation**: Include clear explanations and comments for educational value
+### コラボレーションワークフロー
+- **コンテンツレビュー**：すべての教育コンテンツはピアレビューが必要
+- **コード標準**：標準的な C# コーディング規約に従う
+- **ドキュメント**：教育価値のための明確な説明とコメントを含める
 
-## Common Development Tasks
+## 一般的な開発タスク
 
-### Quick Start for New Content Creation
-1. **Create project directory**: `mkdir [ContentName] && cd [ContentName]`
-2. **Initialize project**: `dotnet new console -n [ProjectName]` (8 seconds, set timeout to 60+ seconds)
-3. **Build and verify**: `dotnet build` (8 seconds, set timeout to 60+ seconds)
-4. **Test run**: `dotnet run` (1-2 seconds)
-5. **Add to repository**: Use git commands to add and commit
+### 新規コンテンツ作成のクイックスタート
+1. **プロジェクトディレクトリの作成**：`mkdir [ContentName] && cd [ContentName]`
+2. **プロジェクトの初期化**：`dotnet new console -n [ProjectName]`（8秒、60秒以上のタイムアウト設定）
+3. **ビルドと確認**：`dotnet build`（8秒、60秒以上のタイムアウト設定）
+4. **テスト実行**：`dotnet run`（1-2秒）
+5. **リポジトリに追加**：git コマンドを使用して追加とコミット
 
-### Performance Expectations (Based on Testing)
-- **Console project creation**: ~8 seconds including restore
-- **Class library creation**: ~1-2 seconds
-- **Test project creation**: ~10 seconds (includes xUnit packages)
-- **Web API creation**: ~3-4 seconds
-- **Build operations**: ~8 seconds for simple projects
-- **Test execution**: ~4-5 seconds for basic test suites
-- **Package installation**: ~2-3 seconds (requires internet)
+### パフォーマンス期待値（テストに基づく）
+- **コンソールプロジェクト作成**：復元を含めて約8秒
+- **クラスライブラリ作成**：1-2秒
+- **テストプロジェクト作成**：約10秒（xUnit パッケージを含む）
+- **Web API 作成**：3-4秒
+- **ビルド操作**：単純なプロジェクトで約8秒
+- **テスト実行**：基本的なテストスイートで4-5秒
+- **パッケージインストール**：2-3秒（インターネット必要）
 
-### CRITICAL Timeout Settings
-- **NEVER CANCEL build operations** - Set timeout to minimum 60 seconds, prefer 120+ seconds for safety
-- **NEVER CANCEL test operations** - Set timeout to minimum 120 seconds for test suites
-- **NEVER CANCEL package operations** - Network dependent, allow 60+ seconds
+### 重要なタイムアウト設定
+- **ビルド操作は絶対キャンセルしない** - 最低60秒のタイムアウトを設定、安全のため120秒以上を推奨
+- **テスト操作は絶対キャンセルしない** - テストスイートには最低120秒のタイムアウトを設定
+- **パッケージ操作は絶対キャンセルしない** - ネットワーク依存、60秒以上を許可
 
-## Educational Content Guidelines
+## 教育コンテンツガイドライン
 
-### Code Sample Standards
-- **Simplicity**: Keep examples focused and understandable
-- **Comments**: Include explanatory comments for learning purposes
-- **Self-contained**: Examples should run without external dependencies when possible
-- **Progressive complexity**: Start with basic concepts, build to advanced
+### コードサンプル標準
+- **シンプルさ**：サンプルは焦点を絞り理解しやすく保つ
+- **コメント**：学習目的の説明的なコメントを含める
+- **自己完結型**：可能な限り外部依存関係なしで実行できるサンプル
+- **段階的複雑性**：基本概念から始まり、高度な内容に発展
 
-### Content Validation Checklist
-- [ ] Code compiles cleanly with `dotnet build`
-- [ ] Examples run successfully with expected output
-- [ ] Documentation is clear and accurate
-- [ ] Code follows C# naming conventions
-- [ ] Educational value is clear and appropriate for target audience
+### コンテンツ検証チェックリスト
+- [ ] `dotnet build` でコードがクリーンにコンパイルされる
+- [ ] サンプルが期待される出力で正常に実行される
+- [ ] ドキュメントが明確で正確である
+- [ ] コードが C# 命名規約に従っている
+- [ ] 教育価値が明確で対象読者に適している
 
-## Troubleshooting Common Issues
+## 一般的な問題のトラブルシューティング
 
-### Build Failures
-- **Check .NET version**: `dotnet --version` should show 8.0.119
-- **Clean and rebuild**: `dotnet clean && dotnet build`
-- **Restore packages**: `dotnet restore`
+### ビルド失敗
+- **.NET バージョンの確認**：`dotnet --version` で 8.0.119 が表示されることを確認
+- **クリーンと再ビルド**：`dotnet clean && dotnet build`
+- **パッケージの復元**：`dotnet restore`
 
-### Package Issues
-- **Internet connectivity required**: Package operations need external access
-- **Cache issues**: Clear with `dotnet nuget locals --clear all` if needed
+### パッケージの問題
+- **インターネット接続が必要**：パッケージ操作には外部アクセスが必要
+- **キャッシュの問題**：必要に応じて `dotnet nuget locals --clear all` でクリア
 
-### Performance Notes
-- **First builds slower**: Initial builds include package restoration
-- **Subsequent builds faster**: Incremental compilation applies
-- **Test discovery**: xUnit test discovery adds startup time
+### パフォーマンスメモ
+- **初回ビルドが遅い**：初回ビルドにはパッケージ復元が含まれる
+- **後続のビルドが高速**：インクリメンタルコンパイルが適用される
+- **テスト発見**：xUnit テスト発見により起動時間が追加される
 
-## Key Repository Locations
+## 主要なリポジトリ場所
 
-### Current Structure
+### 現在の構造
 ```
 /
 ├── .github/
-│   └── copilot-instructions.md (this file)
+│   └── copilot-instructions.md（このファイル）
 └── SECURITY.md
 ```
 
-### Recommended Structure for Future Content
+### 将来のコンテンツの推奨構造
 ```
 /
 ├── examples/
